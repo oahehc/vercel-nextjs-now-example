@@ -27,7 +27,7 @@ git push -u origin master
   select the repository to update the access setting.
   ![repository access](https://i.imgur.com/aI7XVJJ.png)
 - leave all the settings as default
-  Because we use the Next.js template without any customization, Vercel will identify the project and provide the correct default settings automatically.
+  Because we use the Next.js template without any customization, Vercel will identify the project and provide the correct default settings automatically.  
   ![settings](https://i.imgur.com/L7pas4W.png)
 - click the link to check our application after the status change from `Building` to `Ready`
   ![deploy status](https://i.imgur.com/WwpPrG0.png)
@@ -38,7 +38,7 @@ Now, we have deployed our application online. Next, let's check how to create mu
 
 ### The environments provide by Vercel: Production, Preview, and Development
 
-We will see that Vercel provides multiple links for the deployment.
+We will see that Vercel provides multiple links for the deployment.  
 ![link environments](https://i.imgur.com/XtcrS4Q.png)
 
 And there are three different environments in Vercel.  
