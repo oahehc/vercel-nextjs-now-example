@@ -2,7 +2,17 @@
 
 How to create multiple environments for our application by using Next.js and Vercel (Zeit Now).
 
-## Start a Next.js project and Deploy Through Vercel
+<blockquote>
+Vercel (formerly Zeit Now) does not just help us host our application, but also provides multiple environments for us to preview every change we made. So we can make sure all the new features are working perfectly before we launch a new version to our users. And we can also separate the database between development, preview (stage), and production environment. In this article, I will display how to create multiple environments by using Vercel and Next.js. And how to apply different environment variables for each environment.
+</blockquote>
+
+## Agenda
+
+- [Start a Next.js project and Deploy Through Vercel](#agenda-1)
+- [Apply Environment Variables for Multiple Environments](#agenda-2)
+- [Deploy the Application to Different Environments](#agenda-3)
+
+## Start a Next.js project and Deploy Through Vercel <a name="agenda-1"></a>
 
 1. Init a Next.js project
 
@@ -19,22 +29,21 @@ git push -u origin master
 
 3. Import Git Repository to Vercel
 
-- [select the git provider](https://vercel.com/docs)
+- [select the git provider](https://vercel.com/docs): GitHub, GitLab, Bitbucket
   ![deploy to vercel](https://i.imgur.com/C2KPpbi.png)
 - connect to your git provider
-- import the project
-  ![import project](https://i.imgur.com/7B9QYhd.png)
-  select the repository to update the access setting.
+- import our repository into Vercel to create the project  
+  ![import project](https://i.imgur.com/7B9QYhd.png)  
+  _if we can't find the repo we want, adjust repository access setting in the git provider._  
   ![repository access](https://i.imgur.com/aI7XVJJ.png)
 - leave all the settings as default
-  Because we use the Next.js template without any customization, Vercel will identify the project and provide the correct default settings automatically.  
   ![settings](https://i.imgur.com/L7pas4W.png)
 - click the link to check our application after the status change from `Building` to `Ready`
   ![deploy status](https://i.imgur.com/WwpPrG0.png)
 
-Now, we have deployed our application online. Next, let's check how to create multiple environments for our application.
+Now, we have deployed our application online. Let's check how to create multiple environments for our application.
 
-## Apply Environment Variables for Multiple Environments
+## Apply Environment Variables for Multiple Environments <a name="agenda-2"></a>
 
 ### The environments provide by Vercel: Production, Preview, and Development
 
@@ -46,20 +55,27 @@ And there are three different environments in Vercel.
 
 So, what's the relationship between those links and the environments (production, preview, development)?
 
-1. Vercel default provide two URLs for each project: `[ProjectName].now.sh` and `[ProjectName].[VercelAccount].now.sh`
-2. Vercel will create an URL with a random hash for each deployment: `[ProjectName]-[hash].now.sh`
-3. If we deploy to the production environment, then both URLs (`[ProjectName].now.sh`, `[ProjectName].[VercelAccount].now.sh`) will be linked to this deployment.
+1. Vercel default provide two URLs for each project:
+
+- `[ProjectName].now.sh`
+- `[ProjectName].[VercelAccount].now.sh`
+
+2. Vercel will create an URL with a random hash for each deployment:
+
+- `[ProjectName]-[hash].now.sh`
+
+3. If we deploy to the production environment, then both URLs will be linked to this deployment.
 4. If we deploy to the preview environment, then only `[ProjectName].[VercelAccount].now.sh` will be linked to this deployment.
 5. Development is for our local environment.
 
 |                                        | Production | Preview | Development |
 | :------------------------------------- | :--------: | :-----: | :---------: |
-| `[ProjectName].now.sh`                 |     v      |    x    |      X      |
-| `[ProjectName].[VercelAccount].now.sh` |     v      |    v    |      X      |
-| `[ProjectName]-[hash].now.sh`          |     v      |    v    |      X      |
-| `localhost:xxxx`                       |     x      |    x    |      V      |
+| `[ProjectName].now.sh`                 |     v      |    x    |      x      |
+| `[ProjectName].[VercelAccount].now.sh` |     v      |    v    |      x      |
+| `[ProjectName]-[hash].now.sh`          |     v      |    v    |      x      |
+| `localhost:xxxx`                       |     x      |    x    |      v      |
 
-And of course we can customize the URL by clicking `View Domains`.  
+And of course we can customize the URL, just click `View Domains` and add the domain we want.  
 ![control](https://i.imgur.com/BHEConD.png)
 
 Furthermore, we can bind the domain with a specific git branch.  
@@ -71,7 +87,7 @@ We can set different environment variables for all three environments.
 `Dashboard > Project > Settings > General`
 ![environment variables setting](https://i.imgur.com/18szFVq.png)
 
-Vercel provides a few [system environment variables](https://vercel.com/docs/v2/build-step#system-environment-variables) for us.  
+And Vercel provides a few [system environment variables](https://vercel.com/docs/v2/build-step#system-environment-variables) for us.  
 ![system environment variables](https://i.imgur.com/ASP02WA.png)
 
 ### Set environment variables at Next.js
@@ -147,7 +163,7 @@ Because Next.js is a server-side render framework, the environment variables hav
 
    ⚠ We need to be careful when prefixing the variable with `NEXT_PUBLIC_`. Never public important information like the token or password.
 
-## Deploy the Application to Different Environments
+## Deploy the Application to Different Environments <a name="agenda-3"></a>
 
 The last part of this article is about how to deploy our application to the preview and production environment. This is quite straightforward by using Vercel Cli.
 
@@ -169,7 +185,7 @@ Except manually deploy through Vercel Cli, if we create the project by git provi
 - Pushing or pull requests made to branches will trigger preview deployment.
   ![branch-preview](https://i.imgur.com/RveAI2L.png)
 
----
+--
 
 ## Reference
 
