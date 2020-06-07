@@ -21,6 +21,7 @@ const envVariables = [
 
 const Home = (props) => (
   <div>
+    <h1>Test</h1>
     <div className="hero">
       {envVariables.map(({ name, clientValue, serverKey }) => (
         <div key={serverKey}>
