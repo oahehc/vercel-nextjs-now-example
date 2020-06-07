@@ -1,9 +1,12 @@
 {
   "name": "vercel-nextjs-now",
   "scripts": {
+    "predev": "vercel env pull .env.local",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy-preview": "vercel",
+    "deploy-prod": "vercel --prod"
   },
   "dependencies": {
     "next": "^9.4.4",
