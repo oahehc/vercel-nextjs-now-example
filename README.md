@@ -2,10 +2,6 @@
 
 How to create multiple environments for our application by using Next.js and Vercel (Zeit Now).
 
-<blockquote>
-Vercel (formerly Zeit Now) does not just help us host our application, but also provides multiple environments for us to preview every change we made. So we can make sure all the new features are working perfectly before we launch a new version to our users. And we can also separate the database between development, preview (stage), and production environment. In this article, I will display how to create multiple environments by using Vercel and Next.js. And how to apply different environment variables for each environment.
-</blockquote>
-
 ## Agenda
 
 - [Start a Next.js project and Deploy Through Vercel](#agenda-1)
